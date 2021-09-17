@@ -85,7 +85,7 @@ public class main {
 				break;
 			}
 		}
-		System.out.println("新方法： " + gpsPoints2.size() + "  " + a6);
+		System.out.println( gpsPoints2.size() + "  " + a6);
 
 
 	}
