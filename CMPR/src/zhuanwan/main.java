@@ -11,6 +11,9 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+//Copyright (c) 2021 NCWU All rights reserved.
+//Author: Dongbao Zhao; Kaixuan Zhang; Wenkai Liu
+//Institution：College of Surveying and Geo-Informatics, North China University of Water Resources and Electric Power;State Key Laboratory of Geo-Information Engineering
 
 public class main {
 	
