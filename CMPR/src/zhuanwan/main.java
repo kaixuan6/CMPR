@@ -12,33 +12,32 @@ import java.util.Date;
 import java.util.List;
 
 
-//×îĞÂ·½·¨²âÊÔµ¥Ìõ¹ì¼£²âÊÔ
 public class main {
 	
-	static List<GPSData> allgpsPoints = new ArrayList<GPSData>(); // ËùÓĞGPSµã´®
-	static List<List<GPSData>> trackList = new ArrayList<List<GPSData>>(); // ¹ì¼£¼¯ºÏ
-	static List<SenserData> sencePoints = new ArrayList<SenserData>(); // ¼ÇÂ¼Ô­Ê¼´«¸ĞÆ÷µã´®
-	static List<GPSData> gpsPoints = new ArrayList<GPSData>(); // Ô­Ê¼GPSµã´®
-	static List<GPSData> gpsPoints2 = new ArrayList<GPSData>(); // ÌØÕ÷µã
-	static List<GPSData> gpsPoints3 = new ArrayList<GPSData>(); // ÌØÕ÷µã
-	static List<allTurn> allTurns = new ArrayList<allTurn>(); // ¼ÇÂ¼×ªÍäĞòÁĞ
-	static List<allTurn> allTurns2 = new ArrayList<allTurn>(); // ¼ÇÂ¼×ªÍäĞòÁĞ
-	static List<List<GPSData>> stayPointList = new ArrayList<List<GPSData>>(); // »ñÈ¡Í£Áôµãµã´Ø
+	static List<GPSData> allgpsPoints = new ArrayList<GPSData>(); 
+	static List<List<GPSData>> trackList = new ArrayList<List<GPSData>>(); 
+	static List<SenserData> sencePoints = new ArrayList<SenserData>();
+	static List<GPSData> gpsPoints = new ArrayList<GPSData>(); 
+	static List<GPSData> gpsPoints2 = new ArrayList<GPSData>();
+	static List<GPSData> gpsPoints3 = new ArrayList<GPSData>(); 
+	static List<allTurn> allTurns = new ArrayList<allTurn>(); 
+	static List<allTurn> allTurns2 = new ArrayList<allTurn>(); 
+	static List<List<GPSData>> stayPointList = new ArrayList<List<GPSData>>(); 
 	public static void main(String[] args) throws NumberFormatException, IOException, ParseException {
 
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		
 		String txtGPSPath = "C:\\Users\\32762\\Desktop\\1.txt";
 		String txtScenePath = "C:\\Users\\32762\\Desktop\\2.txt";
 		try {
 			gpsPoints = readData.getGPSContext2(txtGPSPath);
 		} catch (Exception e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 			e.printStackTrace();
 		}
 		try {
 			sencePoints = readData.getSceneContext2(txtScenePath);
 		} catch (Exception e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			
 			e.printStackTrace();
 		}
 		
@@ -47,9 +46,9 @@ public class main {
 	
 		double a6 = 0;
 
-		double c1 = 5;// Ñ¹Ëõ±È
+		double c1 = 5;
 
-		int all = gpsPoints.size();// ¹ì¼£µã×ÜÊı
+		int all = gpsPoints.size();
 		int reduceC1 = (int) (all / c1);
 		double low = 0.1;
 		double middle = 0;
@@ -70,9 +69,9 @@ public class main {
 			if (c < 50) {
 				middle = (low + high) / 2;
 				pretreatedGPSData.initGpsDatas(gpsPoints);
-				gpsPoints2 = new ArrayList<GPSData>(); // ÌØÕ÷µã
+				gpsPoints2 = new ArrayList<GPSData>();
 							
-				gpsPoints2 = judgeDir.getAngal3(gpsPoints, middle); // ¸ù¾İGPSÏàÁÚµÄÈıµã×ø±ê»ñÈ¡ÖĞ¼äµãµÄ¼Ğ½Ç
+				gpsPoints2 = judgeDir.getAngal3(gpsPoints, middle);
 				
 				a6 = culErrorDis.getTimeDistance(gpsPoints, gpsPoints2);
 				if (gpsPoints2.size() > reduceC1) {
@@ -86,7 +85,7 @@ public class main {
 				break;
 			}
 		}
-		System.out.println("ĞÂ·½·¨£º " + gpsPoints2.size() + "  " + a6);
+		System.out.println("æ–°æ–¹æ³•ï¼š " + gpsPoints2.size() + "  " + a6);
 
 
 	}
